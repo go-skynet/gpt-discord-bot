@@ -14,7 +14,9 @@ class Message:
         if self.text is not None:
             result += " " + self.text
         return result
-
+    
+    def to_dict(self, bot_name):
+        return {'role': 'assistant' if bot_name == self.user else 'user', 'content': self.text}
 
 @dataclass
 class Conversation:
